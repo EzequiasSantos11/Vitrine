@@ -41,6 +41,11 @@ export const Card = styled.div`
   position: relative;
   .slide{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+      opacity: 0;
+    }
     img{
       position: absolute;
       opacity: 0;
@@ -52,6 +57,19 @@ export const Card = styled.div`
     display: flex;
     width: 100%;
     flex-shrink: 0;
+    h1{
+      text-align: center;
+      display: inline;
+      background: rgba(0,0,0,0.4);
+      position: absolute;
+      font-size: 3rem;
+      color: #FFF;
+      z-index: 9999;
+      opacity: 1;
+      left: 0;
+      right: 0;
+      transition: all .6s ease-in-out;
+    }
     img{
       position: absolute;
       opacity: 1;

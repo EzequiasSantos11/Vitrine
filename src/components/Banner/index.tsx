@@ -21,6 +21,7 @@ export function Banner(){
         {SlideBanner.map((slide, index)=>(
           <div key={index} className={index === current ? "slide active" : "slide"}>
             <img src={slide.image} alt="" />
+            <h1>{slide.message}</h1>
           </div>
         ))}
       </Card>
