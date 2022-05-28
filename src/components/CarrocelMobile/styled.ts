@@ -89,7 +89,7 @@ export const Carrocel = styled.div`
   @media (max-width: 800px){
     padding: 0;
   }
-  `;
+`;
 export const Card = styled.div`
   display: flex;
   align-self: center;
@@ -101,14 +101,22 @@ export const Card = styled.div`
   &.prev{
     transform: translateX(-100%);
     transition: all 1s ease-in-out;
+    z-index: 8;
+    opacity: 0;
   }
   &.next{
     transform: translateX(100%);
     transition: all 1s ease-in-out;
+    z-index: 8;
+    opacity: 0;
   }
   &.active{
-    transform: translateX(0);
+    display: flex;
     transition: all 1s ease-in-out;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    width: 100vw;
   }
   transition: all 1s ease-in-out;
   img{
@@ -117,6 +125,7 @@ export const Card = styled.div`
     width: 100%;
     object-fit: cover;
     transform: scale(.9);
+    transition: all 1s ease-in-out;
     &:hover{
      transform: scale(1);
      transition: all ease .2s;
