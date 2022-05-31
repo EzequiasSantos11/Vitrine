@@ -1,24 +1,42 @@
-import { Container, ShopCart, Money, SearchIcon, IconUser } from "./styles";
+import { useState } from "react";
+import { Container, ShopCart,  SearchIcon, IconUser, IconMenuClose } from "./styles";
 
+type PropsHeader={
+  fixed: boolean;
+}
 
-export function Header() {
+export function Header({fixed}: PropsHeader) {
+  const [openMenu, setOpenMenu] = useState(false);
   return (
-    <Container>
-      <Money />
-      <form className="search">
-        <input type="text" placeholder="Digite aqui sua pesquisa!" />
-        <button type="submit" >
-          <SearchIcon />
-        </button>
-      </form>
-      <div className="shopcart">
-        <div className="user">
-          <IconUser />
-          <span>Minha conta</span>
-        </div>
-        <div className="cart">
-          <ShopCart />
-          <span>4</span>
+    <Container style={{position: fixed? "fixed":"initial", top: fixed ? '0': '50px'}}>
+      <h1>Vitrine</h1>
+      <div className="wrapper">
+        <nav className={openMenu ? "open":"close"}>
+          <ul>
+            <li><a href="">Roupas</a></li>
+            <li><a href="">Fitness</a></li>
+            <li><a href="">Pijamas e Lingerie</a></li>
+            <li><a href="">Moda Praia</a></li>
+            <li><a href="">Jóias &amp; Acessórios</a></li>
+          </ul>
+        </nav>
+        <div className="user-info">
+          <form className="search">
+            <input type="text" placeholder="Pesquisar..." />
+            <button type="submit" >
+              <SearchIcon />
+            </button>
+          </form>
+          <div className="se">
+            <IconUser />
+            <div className="cart">
+              <ShopCart />
+              <span>4</span>
+            </div>
+            <div className="menuIcon" onClick={()=>setOpenMenu(!openMenu)}>
+              <IconMenuClose/>
+            </div>
+          </div>
         </div>
       </div>
     </Container>
