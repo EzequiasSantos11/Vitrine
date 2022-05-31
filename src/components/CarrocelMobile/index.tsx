@@ -1,10 +1,12 @@
-import { ArrowLeft, ArrowRight, Card, Carrocel, Container, Wrapper } from "./styled";
+import { ArrowLeft, ArrowRight, Card, Carrocel, Container, ShopCart, Wrapper } from "./styled";
 import { Moreviwerlist } from "../../services/apiFake";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ControllContext } from "../../services/contexts";
 
 
 export function CarrocelMobile() {
   const [current, setCurrent] = useState(0);
+  const {counter, setCounter} = useContext(ControllContext);
   const length = Moreviwerlist.length;
   const nextSlide = ()=>{
     setCurrent(current === length -1 ? 0 : current + 1);
@@ -31,6 +33,7 @@ export function CarrocelMobile() {
             {Moreviwerlist.length > 0 && Moreviwerlist.map((item, index) => (
               <Card key={index}  className={index < current ? "prev" : index === current ? "active" : index > current ? "next" : ""}>
                 <img src={item.image} alt="" />
+                <ShopCart onClick={()=>setCounter(counter+1)}/>
               </Card>
             ))}
           </Carrocel>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ControllContext } from "../../services/contexts";
 import { Container, ShopCart,  SearchIcon, IconUser, IconMenuClose } from "./styles";
 
 type PropsHeader={
@@ -7,6 +8,7 @@ type PropsHeader={
 
 export function Header({fixed}: PropsHeader) {
   const [openMenu, setOpenMenu] = useState(false);
+  const {counter} = useContext(ControllContext);
   return (
     <Container style={{position: fixed? "fixed":"initial", top: fixed ? '0': '50px'}}>
       <h1>Vitrine</h1>
@@ -31,7 +33,7 @@ export function Header({fixed}: PropsHeader) {
             <IconUser />
             <div className="cart">
               <ShopCart />
-              <span>4</span>
+              {counter > 0 ? (<span>{counter}</span>):""}
             </div>
             <div className="menuIcon" onClick={()=>setOpenMenu(!openMenu)}>
               <IconMenuClose/>

@@ -1,10 +1,12 @@
-import { ArrowLeft, ArrowRight, Card, Carrocel, Container, Wrapper } from "./styles";
+import { ArrowLeft, ArrowRight, Card, Carrocel, Container, Wrapper, ShopCart } from "./styles";
 import { Moreviwerlist } from "../../services/apiFake";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ControllContext } from "../../services/contexts";
 
 
 export function CarrocelComponent() {
   const [scrollX, setScrollX] = useState(-400);
+  const {counter, setCounter} = useContext(ControllContext);
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);
     if (x > 0) {
@@ -39,6 +41,7 @@ export function CarrocelComponent() {
             {Moreviwerlist.length > 0 && Moreviwerlist.map((item, key) => (
               <Card key={key} className="movieRow--item">
                 <img src={item.image} alt="" />
+                <ShopCart onClick={()=>setCounter(counter+1)}/>
               </Card>
             ))}
           </Carrocel>

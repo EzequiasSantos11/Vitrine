@@ -139,3 +139,19 @@ export const Card = styled.div`
     }
   }
 `;
+export const ShopCart = styled(Icones.TiShoppingCart)`
+  display: flex;
+  position: absolute;
+  z-index: 9999;
+  color: #FFF;
+  font-size: 50px;
+  bottom: 10px;
+  left: 50px;
+  cursor: pointer;
+  @media (max-width: 800px) {
+    font-size: 45px;
+  }
+  @media (max-width: 424px) {
+    font-size: 35px;
+  }
+`;

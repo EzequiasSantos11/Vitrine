@@ -4,6 +4,7 @@ import { Routers } from './services/routes';
 import GlobalStyles from './styles/global';
 import {Promotion} from "./components/Promotion";
 import { useEffect, useState } from 'react';
+import { ControllProvider } from './services/contexts';
 
 
 function App() {
@@ -25,10 +26,12 @@ function App() {
   },[]);
   return (
     <BrowserRouter>
-      <Promotion/>
-      <Header fixed={on}/>
-      <Routers/>
-      <GlobalStyles/>
+      <ControllProvider>
+        <Promotion/>
+        <Header fixed={on}/>
+        <Routers/>
+        <GlobalStyles/>
+      </ControllProvider>
     </BrowserRouter>
   )
 }

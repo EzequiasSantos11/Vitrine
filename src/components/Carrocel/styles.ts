@@ -95,6 +95,7 @@ export const Card = styled.div`
   width: 380px;
   height: 100%;
   flex-shrink: 0;
+  position: relative;
   img{
     flex-shrink: 0;
     height: 100%;
@@ -115,3 +116,19 @@ export const Card = styled.div`
   }
 `;
  
+export const ShopCart = styled(Icones.TiShoppingCart)`
+  display: flex;
+  position: absolute;
+  z-index: 9999;
+  color: #FFF;
+  font-size: 50px;
+  bottom: 10px;
+  left: 20px;
+  cursor: pointer;
+  @media (max-width: 800px) {
+    font-size: 45px;
+  }
+  @media (max-width: 424px) {
+    font-size: 35px;
+  }
+`;

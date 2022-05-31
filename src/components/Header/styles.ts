@@ -30,6 +30,7 @@ export const Container = styled.header`
   .wrapper{
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 70px;
     width: 100%;
     background: #FFF;
